@@ -33,6 +33,7 @@ services:
       - selenoid
     tty: true
     environment:
+      REMOTE_DRIVER: "True"
       SELENOID_URI: http://selenoid:4444/wd/hub
       BROWSER: chrome
       BROWSER_VERSION: "128.0"
