@@ -1,0 +1,29 @@
+name: Sprint_9 UI autotests
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  run-selenoid-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Pull selenoid chrome image
+        run: docker pull selenoid/chrome:128.0
+
+      - name: Run tests in docker compose
+        run: docker compose up --build --abort-on-container-exit --exit-code-from test_docker
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v
