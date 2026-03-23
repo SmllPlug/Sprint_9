@@ -20,16 +20,3 @@ class MainPage(BasePage):
     @allure.step('Нажатие на кнопку Войти')
     def click_login_button(self):
         self.click(MainPageLocators.SIGN_IN_BUTTON)
-'''
-    @allure.step('Ожидание отображения карточки созданного рецепта')
-    def wait_for_recipe_card_visible(self, recipe_name):
-        locator = (
-            MainPageLocators.RECIPE_CARD_BY_TITLE[0],
-            MainPageLocators.RECIPE_CARD_BY_TITLE[1].format(recipe_name)
-        )
-        return self.wait_for_element_visible(locator)
-
-    @allure.step('Проверка, что открыта первая страница')
-    def wait_for_first_page_visible(self):
-        return self.wait_for_element_visible(MainPageLocators.ACTIVE_FIRST_PAGE)
-'''
