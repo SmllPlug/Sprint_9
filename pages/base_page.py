@@ -23,14 +23,8 @@ class BasePage:
     def wait_for_element_clickable(self, locator):
         return self.wait.until(
             EC.element_to_be_clickable(locator)
-        )
-
-    @allure.step('Ожидание исчезновения элемента')
-    def wait_for_element_invisible(self, locator):
-        return self.wait.until(
-            EC.invisibility_of_element_located(locator)
-        )
-
+        )   
+    
     @allure.step('Ожидание наличия элемента в DOM')
     def wait_for_element_present(self, locator):
         return self.wait.until(
@@ -59,11 +53,6 @@ class BasePage:
     def click_js(self, locator):
         element = self.wait_for_element_clickable(locator)
         self.click_on_element(element)
-
-    @allure.step('Получение текста элемента')
-    def get_text_from_element(self, locator):
-        element = self.wait_for_element_visible(locator)
-        return element.text
 
     @allure.step('Ввод текста')
     def enter_text(self, locator, text):
